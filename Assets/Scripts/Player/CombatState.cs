@@ -11,14 +11,13 @@ public class CombatState : State
             return;
 
         Animator.SetFloat(Constants.AnimationSpeedMultiplier, Constants.BaseAnimationSpeedMultiplier + PlayerStats.AttackSpeed * Constants.PlayerAttackSpeedCoeff);
-        transform.DOLookAt(point, Constants.PlayerTurnRateCoeff / (Constants.PlayerBaseMoveSpeed + PlayerStats.MovementSpeed * Constants.PlayerMovementSpeedCoeff));
+        transform.DOLookAt(point, Constants.PlayerTurnRateCoeff / (PlayerStats.MovementSpeed * Constants.PlayerMovementSpeedCoeff));
         ActiveCoroutine = StartCoroutine(Attacking()); 
     }
 
     private IEnumerator Attacking()
     {
         yield return new WaitForSeconds(BaseAnimationTime / (Constants.BaseAnimationSpeedMultiplier + PlayerStats.AttackSpeed * Constants.PlayerAttackSpeedCoeff));
-        print("attack completed");
         Complete();
     }
 }

@@ -16,12 +16,18 @@ public class State : MonoBehaviour
 
     public event UnityAction ActionCompleted;
 
-    private void OnEnable()
+    public void Init()
     {
-        ActiveCoroutine = null;
         Animator = GetComponent<Animator>();
         Animator.SetTrigger(_animationName.ToString());
         BaseAnimationTime = Animator.GetCurrentAnimatorStateInfo(0).length;
+        enabled = false;
+    }
+
+    public void Enter()
+    {
+        ActiveCoroutine = null;
+        Animator.SetTrigger(_animationName.ToString());
     }
 
     protected void Complete()

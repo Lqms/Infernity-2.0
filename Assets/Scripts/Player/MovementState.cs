@@ -13,7 +13,7 @@ public class MovementState : State
             StopCoroutine(ActiveCoroutine);
 
         _agent.isStopped = false;
-        _agent.speed = Constants.PlayerBaseMoveSpeed + PlayerStats.MovementSpeed * Constants.PlayerMovementSpeedCoeff;
+        _agent.speed = PlayerStats.MovementSpeed * Constants.PlayerMovementSpeedCoeff;
         ActiveCoroutine = StartCoroutine(MovingToPoint(point));
     }
 

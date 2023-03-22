@@ -29,8 +29,16 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        var states = GetComponents<State>();
+
+        foreach (var state in states)
+        {
+            state.Init();
+        }
+
         _currentState = _idleState;
         _currentState.enabled = true;
+        _currentState.Enter();
     }
 
     private void OnActionCompleted()
@@ -59,6 +67,7 @@ public class PlayerController : MonoBehaviour
         _currentState = newState;
 
         _currentState.enabled = true;
+        _currentState.Enter();
         _currentState.ActionCompleted += OnActionCompleted;
     }
 
