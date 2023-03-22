@@ -15,7 +15,9 @@ public class BlockState : State
     private IEnumerator Blocking(KeyCode key)
     {
         while (Input.GetKeyUp(key) == false)
-            yield return null;  
+        {
+            yield return null;
+        }
 
         Complete();
     }

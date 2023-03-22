@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MovementState _movementState;
     [SerializeField] private BlockState _blockState;
     [SerializeField] private CombatState _combatState;
+    [SerializeField] private CastSpellState _castState;
 
     private State _currentState;
 
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
         PlayerInput.RightMouseButtonClicked += OnRightMouseButtonClicked;
         PlayerInput.LeftMouseButtonClicked += OnLeftMouseButtonClicked;
         PlayerInput.BlockKeyPressed += OnBlockKeyPressed;
+        PlayerInput.CastSpellKeyPressed += OnCastSpellKeyPressed;
     }
 
     private void OnDisable()
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
         PlayerInput.RightMouseButtonClicked -= OnRightMouseButtonClicked;
         PlayerInput.LeftMouseButtonClicked -= OnLeftMouseButtonClicked;
         PlayerInput.BlockKeyPressed -= OnBlockKeyPressed;
+        PlayerInput.CastSpellKeyPressed -= OnCastSpellKeyPressed;
     }
 
     private void Start()
@@ -39,6 +42,12 @@ public class PlayerController : MonoBehaviour
         _currentState = _idleState;
         _currentState.enabled = true;
         _currentState.Enter();
+    }
+
+    private void OnCastSpellKeyPressed()
+    {
+        if (TryChangeState(_castState))
+            _castState.Cast();
     }
 
     private void OnActionCompleted()
