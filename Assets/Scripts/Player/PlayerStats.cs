@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-
-    public float Speed => _speed;
+    public static float MovementSpeed { get; private set; } = 100;
+    public static float AttackSpeed { get; private set; } = 100;
 }

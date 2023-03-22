@@ -1,41 +1,90 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement _movement;
-    [SerializeField] private PlayerStats _stats;
+    [Header("States")]
+    [SerializeField] private IdleState _idleState;
+    [SerializeField] private MovementState _movementState;
+    [SerializeField] private BlockState _blockState;
+    [SerializeField] private CombatState _combatState;
+
+    private State _currentState;
 
     private void OnEnable()
     {
-        PlayerInput.AttackKeyPressed += OnAttackKeyPressed;
-        PlayerInput.MoveKeyPressed += OnMoveKeyPressed;
+        PlayerInput.RightMouseButtonClicked += OnRightMouseButtonClicked;
+        PlayerInput.LeftMouseButtonClicked += OnLeftMouseButtonClicked;
+        PlayerInput.BlockKeyPressed += OnBlockKeyPressed;
     }
-
 
     private void OnDisable()
     {
-        PlayerInput.AttackKeyPressed -= OnAttackKeyPressed;
-        PlayerInput.MoveKeyPressed -= OnMoveKeyPressed;
+        PlayerInput.RightMouseButtonClicked -= OnRightMouseButtonClicked;
+        PlayerInput.LeftMouseButtonClicked -= OnLeftMouseButtonClicked;
+        PlayerInput.BlockKeyPressed -= OnBlockKeyPressed;
     }
 
-    private void OnAttackKeyPressed()
+    private void Start()
     {
-
+        _currentState = _idleState;
+        _currentState.enabled = true;
     }
 
-    private void OnMoveKeyPressed()
+    private void OnActionCompleted()
     {
-        _movement.TryMove(GetClickedPoint(), _stats.Speed);
+        ChangeState(_idleState);
     }
 
-    private Vector3 GetClickedPoint()
+    private bool TryChangeState(State newState)
+    {
+        if (_currentState.CanBeInterrupted == false)
+            return false;
+
+        ChangeState(newState);
+
+        return true;
+    }
+
+    private void ChangeState(State newState)
+    {
+        if (newState == _currentState)
+            return;
+
+        _currentState.ActionCompleted -= OnActionCompleted;
+        _currentState.enabled = false;
+
+        _currentState = newState;
+
+        _currentState.enabled = true;
+        _currentState.ActionCompleted += OnActionCompleted;
+    }
+
+    private void OnRightMouseButtonClicked()
+    {
+        if (TryChangeState(_movementState))
+            _movementState.MoveToPoint(HandleClick().point);
+    }
+
+    private void OnLeftMouseButtonClicked()
+    {
+        if (TryChangeState(_combatState))
+            _combatState.AttackToPoint(HandleClick().point);
+    }
+
+    private void OnBlockKeyPressed(KeyCode key)
+    {
+        if (TryChangeState(_blockState))
+            _blockState.Block(key);
+    }
+
+    private RaycastHit HandleClick()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Physics.Raycast(ray, out RaycastHit clickedPointInfo);
-        Vector3 clickedPoint = new Vector3(clickedPointInfo.point.x, transform.position.y, clickedPointInfo.point.z);
+        Physics.Raycast(ray, out RaycastHit hitInfo);
 
-        return clickedPoint;
+        return hitInfo;
     }
 }
