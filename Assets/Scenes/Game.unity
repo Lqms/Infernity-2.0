@@ -3908,11 +3908,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473cf0f9f9a16fb42a9bfc36a5450230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _idleState: {fileID: 471312487364795325}
   _movementState: {fileID: 471312487364795317}
   _blockState: {fileID: 471312487364795320}
   _combatState: {fileID: 471312487364795319}
   _castState: {fileID: 471312487364795324}
+  _idleState: {fileID: 471312487364795325}
 --- !u!114 &471312487364795323
 MonoBehaviour:
   m_ObjectHideFlags: 0

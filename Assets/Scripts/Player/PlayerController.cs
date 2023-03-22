@@ -6,11 +6,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("States")]
-    [SerializeField] private IdleState _idleState;
     [SerializeField] private MovementState _movementState;
     [SerializeField] private BlockState _blockState;
     [SerializeField] private CombatState _combatState;
     [SerializeField] private CastSpellState _castState;
+    [SerializeField] private IdleState _idleState;
 
     private State _currentState;
 
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
     private void OnRightMouseButtonClicked()
     {
         if (TryChangeState(_movementState))
-            _movementState.MoveToPoint(HandleClick().point);
+            _movementState.TryMoveToPoint(HandleClick().point);
     }
 
     private void OnLeftMouseButtonClicked()

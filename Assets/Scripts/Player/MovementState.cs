@@ -7,7 +7,7 @@ public class MovementState : State
 {
     [SerializeField] private NavMeshAgent _agent;
 
-    public void MoveToPoint(Vector3 point)
+    public void TryMoveToPoint(Vector3 point)
     {
         if (ActiveCoroutine != null)
             StopCoroutine(ActiveCoroutine);
