@@ -9,6 +9,15 @@ public class MovementState : State
 
     public void TryMoveToPoint(Vector3 point)
     {
+        float distance = Vector3.Distance(new Vector3(point.x, 0, point.z), new Vector3(transform.position.x, 0, transform.position.z));
+
+        if (distance < 1)
+        {
+            transform.DOLookAt(point, Constants.PlayerTurnRateCoeff / (PlayerStats.MovementSpeed * Constants.PlayerMovementSpeedCoeff));
+            Complete();
+            return;
+        }
+
         if (ActiveCoroutine != null)
             StopCoroutine(ActiveCoroutine);
 
