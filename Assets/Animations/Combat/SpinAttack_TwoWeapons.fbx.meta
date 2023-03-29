@@ -39,11 +39,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: tpose
-      takeName: tpose
+      name: SpinAttack_TwoWeapons (1)
+      takeName: SpinAttack_TwoWeapons
       internalID: 0
-      firstFrame: 0
-      lastFrame: 1
+      firstFrame: 2
+      lastFrame: 47
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
