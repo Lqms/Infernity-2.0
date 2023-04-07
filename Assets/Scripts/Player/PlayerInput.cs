@@ -1,33 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField] private KeyCode _blockKey = KeyCode.Space;
-    [SerializeField] private KeyCode _interactKey = KeyCode.E;
-    [SerializeField] private KeyCode _castSpellKey = KeyCode.R;
-
-    public static event UnityAction RightMouseButtonClicked;
-    public static event UnityAction LeftMouseButtonClicked;
-    public static event UnityAction InteractKeyPressed;
-    public static event UnityAction CastSpellKeyPressed;
-    public static event UnityAction<KeyCode> BlockKeyPressed;
-
-    private void Update()
+    public static KeyCode AttackKey = KeyCode.Mouse0;
+    public static KeyCode MoveKey = KeyCode.Mouse1;
+    public static KeyCode BlockKey = KeyCode.Space;
+    
+    public static bool CheckBlockKeyDown()
     {
-        if (Input.GetMouseButton(0))
-            LeftMouseButtonClicked?.Invoke();
+        if (Input.GetKeyDown(BlockKey))
+        {
+            return true;
+        }
 
-        if (Input.GetMouseButton(1))
-            RightMouseButtonClicked?.Invoke();
+        return false;
+    }
 
-        if (Input.GetKeyDown(_blockKey))
-            BlockKeyPressed?.Invoke(_blockKey);
+    public static bool CheckAttackKeyDown()
+    {
+        if (Input.GetKeyDown(AttackKey))
+        {
+            return true;
+        }
 
-        if (Input.GetKeyDown(_interactKey))
-            InteractKeyPressed?.Invoke();
+        return false;
+    }
+    
+    public static bool CheckMoveKeyDown()
+    {
+        if (Input.GetKeyDown(MoveKey))
+        {
+            return true;
+        }
 
-        if (Input.GetKeyDown(_castSpellKey))
-            CastSpellKeyPressed?.Invoke();
+        return false;
     }
 }
