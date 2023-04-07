@@ -15,8 +15,7 @@ public class PlayerCombat : MonoBehaviour
     {
         IsAttacking = true;
 
-        yield return new WaitForSeconds(0.2f); // animation time
-        yield return new WaitForSeconds(0.01f); // delay
+        yield return new WaitForSeconds(1.94f); 
 
         IsAttacking = false;
     }
