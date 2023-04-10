@@ -7,6 +7,7 @@ public enum AnimationNames
     Attack,
     Idle,
     Run,
+    Block
 }
 
 public class State : MonoBehaviour

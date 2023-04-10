@@ -10,11 +10,11 @@ public class PlayerInput : MonoBehaviour
     
     public static bool CheckBlockKeyDown()
     {
-        if (Input.GetKeyDown(BlockKey))
+        if (Input.GetKey(BlockKey))
         {
             return true;
         }
-
+        
         return false;
     }
 
@@ -24,7 +24,7 @@ public class PlayerInput : MonoBehaviour
         {
             return true;
         }
-
+        
         return false;
     }
     

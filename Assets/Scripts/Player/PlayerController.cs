@@ -10,7 +10,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     public bool IsAttacking => _combat.IsAttacking;
+    public bool IsBlocking => _combat.IsBlocking;
     public bool IsMovementStopped => _mover.IsMovementStopped;
+
+    public void Block()
+    {
+        _mover.StopMovement();
+        _combat.Block();
+    }
+
+    public void UnBlock()
+    {
+        _combat.UnBlock();
+    }
     
     public void Attack(Vector3 point)
     {
