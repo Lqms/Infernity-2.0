@@ -1,12 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockTransition : Transition
+public class CastTransition : Transition
 {
     private void Update()
     {
-        if (PlayerInput.CheckBlockKey() && !PlayerController.IsBlocking)
+        if (PlayerInput.CheckCastKeyDown() && !PlayerController.IsCasting)
             NeedTransit = true;
     }
 }

@@ -7,8 +7,10 @@ public class PlayerInput : MonoBehaviour
     public static KeyCode AttackKey = KeyCode.Mouse0;
     public static KeyCode MoveKey = KeyCode.Mouse1;
     public static KeyCode BlockKey = KeyCode.Space;
-    
-    public static bool CheckBlockKeyDown()
+
+    public static KeyCode CastKey = KeyCode.LeftShift;
+
+    public static bool CheckBlockKey()
     {
         if (Input.GetKey(BlockKey))
         {
@@ -21,6 +23,16 @@ public class PlayerInput : MonoBehaviour
     public static bool CheckAttackKeyDown()
     {
         if (Input.GetKeyDown(AttackKey))
+        {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    public static bool CheckCastKeyDown()
+    {
+        if (Input.GetKeyDown(CastKey))
         {
             return true;
         }

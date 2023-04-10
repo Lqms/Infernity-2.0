@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator _animator;
 
     public bool IsAttacking => _combat.IsAttacking;
+    public bool IsCasting => _combat.IsCasting;
     public bool IsBlocking => _combat.IsBlocking;
     public bool IsMovementStopped => _mover.IsMovementStopped;
-
+    
     public void Block()
     {
         _mover.StopMovement();
@@ -29,6 +30,13 @@ public class PlayerController : MonoBehaviour
         _mover.StopMovement();
         transform.DORotate(point, 0.2f); // не хочет поворачиваться в точку атаки, гад
         _combat.Attack();
+    }
+
+    public void Cast(Vector3 point)
+    {
+        _mover.StopMovement();
+        transform.DORotate(point, 0.2f);
+        _combat.Cast();
     }
 
     public void Move(Vector3 point)

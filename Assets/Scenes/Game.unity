@@ -500,9 +500,13 @@ GameObject:
   - component: {fileID: 490819134}
   - component: {fileID: 490819133}
   - component: {fileID: 490819132}
+  - component: {fileID: 490819137}
   - component: {fileID: 490819131}
   - component: {fileID: 490819130}
   - component: {fileID: 490819129}
+  - component: {fileID: 490819136}
+  - component: {fileID: 490819139}
+  - component: {fileID: 490819138}
   m_Layer: 0
   m_Name: StateMachine
   m_TagString: Untagged
@@ -595,6 +599,8 @@ MonoBehaviour:
   _transitions:
   - {fileID: 490819129}
   - {fileID: 490819131}
+  - {fileID: 490819130}
+  - {fileID: 490819136}
 --- !u!114 &490819134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -611,6 +617,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 490819130}
   - {fileID: 490819129}
+  - {fileID: 490819136}
 --- !u!114 &490819135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +631,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startState: {fileID: 490819134}
+--- !u!114 &490819136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490819127}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f7b09d42886bc4992bb9f37c2018ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 490819137}
+--- !u!114 &490819137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490819127}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4afadd008d05448bf92747478787d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationName: 3
+  _transitions:
+  - {fileID: 490819131}
+--- !u!114 &490819138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490819127}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b54f8831b4df40449df78dc1f244a73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 490819139}
+--- !u!114 &490819139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490819127}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd967510648543439003f936c6548ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationName: 4
+  _transitions:
+  - {fileID: 490819131}
 --- !u!1001 &535546032
 PrefabInstance:
   m_ObjectHideFlags: 0

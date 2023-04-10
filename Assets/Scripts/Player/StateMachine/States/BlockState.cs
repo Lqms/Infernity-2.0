@@ -14,7 +14,7 @@ public class BlockState : State
 
     private void Update()
     {
-        if (!PlayerInput.CheckBlockKeyDown())
+        if (!PlayerInput.CheckBlockKey())
             PlayerController.UnBlock();
     }
 }

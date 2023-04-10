@@ -6,7 +6,7 @@ public class IdleTransition : Transition
 {
     private void Update()
     {
-        if (PlayerController.IsMovementStopped && !PlayerController.IsAttacking && !PlayerController.IsBlocking)
+        if (PlayerController.IsMovementStopped && !PlayerController.IsAttacking && !PlayerController.IsBlocking && !PlayerController.IsCasting)
             NeedTransit = true;
     }
 }
