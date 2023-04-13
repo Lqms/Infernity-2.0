@@ -15,8 +15,7 @@ public class PlayerController : MonoBehaviour
     public void Attack(Vector3 point)
     {
         _mover.StopMovement();
-        transform.DORotate(point, 0.2f); // не хочет поворачиваться в точку атаки, гад
-        _combat.Attack();
+        _combat.Attack(point);
     }
 
     public void Move(Vector3 point)
