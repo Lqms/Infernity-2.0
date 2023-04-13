@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public void Attack(Vector3 point)
     {
         _mover.StopMovement();
-        _combat.Attack(point);
+        _combat.Attack(point, _animator);
     }
 
     public void Move(Vector3 point)

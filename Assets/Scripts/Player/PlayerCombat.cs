@@ -7,19 +7,19 @@ public class PlayerCombat : MonoBehaviour
 {
     public bool IsAttacking { get; private set; } = false;
 
-    public void Attack(Vector3 point)
+    public void Attack(Vector3 point, Animator animator)
     {
-        StartCoroutine(Attacking(point));
+        StartCoroutine(Attacking(point, animator));
     }
 
-    private IEnumerator Attacking(Vector3 point)
+    private IEnumerator Attacking(Vector3 point, Animator animator)
     {
         IsAttacking = true;
 
         transform.DORotate(point, 0.2f); // не хочет поворачиваться в точку атаки, гад
         yield return new WaitForSeconds(0.01f);
 
-        float animationTime = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
+        float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
         print(animationTime);
 
         yield return new WaitForSeconds(animationTime); 

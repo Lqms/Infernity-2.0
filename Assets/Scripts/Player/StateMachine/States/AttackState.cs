@@ -6,7 +6,9 @@ public class AttackState : State
 {
     protected override void OnEnable()
     {
-        PlayerController.PlayAnimation(AnimationName.ToString() + Random.Range(1, 3));
+        int differentAttackAnimationsCount = 3;
+
+        PlayerController.PlayAnimation(AnimationName.ToString() + Random.Range(1, differentAttackAnimationsCount + 1));
         PlayerController.Attack(PlayerController.HandleClick().point);
     }
 }
