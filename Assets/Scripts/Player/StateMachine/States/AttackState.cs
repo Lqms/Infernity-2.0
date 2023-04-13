@@ -4,11 +4,27 @@ using UnityEngine;
 
 public class AttackState : State
 {
+    [SerializeField] private int _differentAttackAnimationsCount = 3;
+
     protected override void OnEnable()
     {
-        int differentAttackAnimationsCount = 3;
+        /*
+        _differentAttackAnimationsCount = 0;
 
-        PlayerController.PlayAnimation(AnimationName.ToString() + Random.Range(1, differentAttackAnimationsCount + 1));
+        var states = GetComponentInParent<Animator>().runtimeAnimatorController.animationClips;
+
+        foreach (var state in states)
+        {
+            print(state.name);
+
+            if (state.name.StartsWith("Attack"))
+                differentAttackAnimationsCount++;
+        }
+
+        print(differentAttackAnimationsCount);
+        */
+
+        PlayerController.PlayAnimation(AnimationName.ToString() + Random.Range(1, _differentAttackAnimationsCount + 1));
         PlayerController.Attack(PlayerController.HandleClick().point);
     }
 }
