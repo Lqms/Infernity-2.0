@@ -8,6 +8,7 @@ public class CardAnimation : MonoBehaviour
 {
     [SerializeField] private Transform[] _routes;
     [SerializeField] private float _speedModifier = 1;
+    [SerializeField] private ParticleSystem _explosionVFX;
 
     private void Start()
     {
@@ -21,6 +22,10 @@ public class CardAnimation : MonoBehaviour
     
     private IEnumerator Animating()
     {
+        float animationTime = _routes.Length / _speedModifier;
+        transform.DORotate(new Vector3(0, 180, 0), _routes.Length / _speedModifier);
+        transform.DOScale(transform.localScale * 2, animationTime);
+        
         foreach (var route in _routes)
         {
             float tParam = 0;
@@ -46,5 +51,8 @@ public class CardAnimation : MonoBehaviour
             // _speedModifier *=  0.90f; для плавного снижения скорости
             yield return null;
         }
+
+        transform.DOShakeScale(0.5f, 0.3f, 2);
+        _explosionVFX.Play();
     }
 }
