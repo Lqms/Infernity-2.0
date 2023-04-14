@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae1c4967cb35c04282f801eb211d964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlPoints:
+  _controlPoints:
   - {fileID: 183282126}
   - {fileID: 1420274729}
   - {fileID: 802546789}
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae1c4967cb35c04282f801eb211d964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlPoints:
+  _controlPoints:
   - {fileID: 1745892345}
   - {fileID: 1704566041}
   - {fileID: 1309059020}
@@ -573,10 +573,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 102c5a4e255085e4b983fa5936585e66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  routes:
+  _routes:
   - {fileID: 286629372}
   - {fileID: 1811991279}
   - {fileID: 722562670}
+  _speedModifier: 1
 --- !u!1 &802546788
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ae1c4967cb35c04282f801eb211d964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlPoints:
+  _controlPoints:
   - {fileID: 1876297629}
   - {fileID: 99349103}
   - {fileID: 2136242316}

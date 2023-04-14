@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,69 +6,45 @@ using DG.Tweening;
 
 public class CardAnimation : MonoBehaviour
 {
-    [SerializeField]
-    private Transform[] routes;
+    [SerializeField] private Transform[] _routes;
+    [SerializeField] private float _speedModifier = 1;
 
-    private int routeToGo;
-
-    private float tParam;
-
-    private Vector3 objectPosition;
-
-    private float speedModifier;
-
-    private bool coroutineAllowed;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        routeToGo = 0;
-        tParam = 0f;
-        speedModifier = 0.5f;
-        coroutineAllowed = true;
-
-        transform.DOScale(2, 2);
-        transform.DORotate(new Vector3(0, 180, 0), 2);
+        StartAnimation();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartAnimation()
     {
-        if (coroutineAllowed)
-        {
-            StartCoroutine(GoByTheRoute(routeToGo));
-        }
+        StartCoroutine(Animating());
     }
-
-    private IEnumerator GoByTheRoute(int routeNum)
+    
+    private IEnumerator Animating()
     {
-        coroutineAllowed = false;
-
-        Vector3 p0 = routes[routeNum].GetChild(0).position;
-        Vector3 p1 = routes[routeNum].GetChild(1).position;
-        Vector3 p2 = routes[routeNum].GetChild(2).position;
-        Vector3 p3 = routes[routeNum].GetChild(3).position;
-
-        while (tParam < 1)
+        foreach (var route in _routes)
         {
-            tParam += Time.deltaTime * speedModifier;
+            float tParam = 0;
 
-            objectPosition = Mathf.Pow(1 - tParam, 3) * p0 + 3 * Mathf.Pow(1 - tParam, 2) * tParam * p1 + 3 * (1 - tParam) * Mathf.Pow(tParam, 2) * p2 + Mathf.Pow(tParam, 3) * p3;
+            Vector3 firstPoint = route.GetChild(0).position;
+            Vector3 secondPoint = route.GetChild(1).position;
+            Vector3 thirdPoint = route.GetChild(2).position;
+            Vector3 fourthPoint = route.GetChild(3).position;
 
-            transform.position = objectPosition;
-            yield return new WaitForEndOfFrame();
+            while (tParam < 1)
+            {
+                tParam += Time.deltaTime * _speedModifier;
+
+                transform.position = Mathf.Pow(1 - tParam, 3) * firstPoint +
+                                  3 * Mathf.Pow(1 - tParam, 2) * tParam * secondPoint +
+                                  3 * (1 - tParam) * Mathf.Pow(tParam, 2) * thirdPoint +
+                                  Mathf.Pow(tParam, 3) * fourthPoint;
+                
+                yield return null;
+            }
+
+            tParam = 0;
+            // _speedModifier *=  0.90f; для плавного снижения скорости
+            yield return null;
         }
-
-        tParam = 0;
-        speedModifier = speedModifier * 0.90f;
-        routeToGo += 1;
-
-        if (routeToGo > routes.Length - 1)
-        {
-            routeToGo = 0;
-        }
-
-        coroutineAllowed = true;
-
     }
 }
