@@ -50,7 +50,8 @@ public class CardAnimation : MonoBehaviour
             tParam = 0;
             yield return null;
         }
-        
+
+        transform.DOShakePosition(1, new Vector3(1, 1, 0));
         _endExplosionVFX.Play();
     }
 }
