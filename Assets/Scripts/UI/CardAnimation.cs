@@ -9,6 +9,7 @@ public class CardAnimation : MonoBehaviour
     [SerializeField] private Transform[] _routes;
     [SerializeField] private float _speedModifier = 1;
     [SerializeField] private ParticleSystem _endExplosionVFX;
+    [SerializeField] private GameObject _camera;
 
     private void Start()
     {
@@ -53,5 +54,7 @@ public class CardAnimation : MonoBehaviour
 
         transform.DOShakePosition(1, new Vector3(1, 1, 0));
         _endExplosionVFX.Play();
+        yield return new WaitForSeconds(1.5f);
+        transform.DOMove(_camera.transform.position + new Vector3(-0.5f, 1f, 2f), 0.5f);
     }
 }
