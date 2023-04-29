@@ -26,7 +26,8 @@ public class CardAnimation : MonoBehaviour
         float animationTime = _routes.Length / _speedModifier;
         transform.DORotate(new Vector3(0, 180, 0), _routes.Length / _speedModifier);
         transform.DOScale(transform.localScale * 3, animationTime);
-        
+        _camera.transform.DOMoveZ(-23, animationTime * 1.7f);
+
         foreach (var route in _routes)
         {
             float tParam = 0;
@@ -55,6 +56,6 @@ public class CardAnimation : MonoBehaviour
         transform.DOShakePosition(1, new Vector3(1, 1, 0));
         _endExplosionVFX.Play();
         yield return new WaitForSeconds(1.5f);
-        transform.DOMove(_camera.transform.position + new Vector3(-0.5f, 1f, 2f), 0.5f);
+        //transform.DOMove(_camera.transform.position + new Vector3(-0.5f, 1f, -2f), 1f);
     }
 }
