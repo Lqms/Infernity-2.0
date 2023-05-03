@@ -8,6 +8,14 @@ public class MainCamera : MonoBehaviour
     [SerializeField] private Vector3 _baseRotation;
     [SerializeField] private Vector3 _baseOffset;
 
+    private bool _canFollow = true;
+
+    public bool CanFollow
+    {
+        get { return _canFollow; }
+        set { _canFollow = value; }
+    }
+
     private void Start()
     {
         StartCoroutine(Following(_player));
@@ -15,7 +23,7 @@ public class MainCamera : MonoBehaviour
 
     private IEnumerator Following(Transform target)
     {
-        while (true)
+        while (_canFollow)
         {
             transform.position = new Vector3(target.position.x, _baseOffset.y, target.position.z + _baseOffset.z);
             yield return null;

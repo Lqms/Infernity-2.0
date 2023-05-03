@@ -1,33 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField] private KeyCode _blockKey = KeyCode.Space;
-    [SerializeField] private KeyCode _interactKey = KeyCode.E;
-    [SerializeField] private KeyCode _castSpellKey = KeyCode.R;
+    public static KeyCode AttackKey = KeyCode.Mouse0;
+    public static KeyCode MoveKey = KeyCode.Mouse1;
+    public static KeyCode BlockKey = KeyCode.Space;
 
-    public static event UnityAction RightMouseButtonClicked;
-    public static event UnityAction LeftMouseButtonClicked;
-    public static event UnityAction InteractKeyPressed;
-    public static event UnityAction CastSpellKeyPressed;
-    public static event UnityAction<KeyCode> BlockKeyPressed;
+    public static KeyCode CastKey = KeyCode.LeftShift;
 
-    private void Update()
+    public static bool CheckBlockKey()
     {
-        if (Input.GetMouseButton(0))
-            LeftMouseButtonClicked?.Invoke();
+        if (Input.GetKey(BlockKey))
+        {
+            return true;
+        }
+        
+        return false;
+    }
 
-        if (Input.GetMouseButton(1))
-            RightMouseButtonClicked?.Invoke();
+    public static bool CheckAttackKeyDown()
+    {
+        if (Input.GetKeyDown(AttackKey))
+        {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    public static bool CheckCastKeyDown()
+    {
+        if (Input.GetKeyDown(CastKey))
+        {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    public static bool CheckMoveKeyDown()
+    {
+        if (Input.GetKeyDown(MoveKey))
+        {
+            return true;
+        }
 
-        if (Input.GetKeyDown(_blockKey))
-            BlockKeyPressed?.Invoke(_blockKey);
-
-        if (Input.GetKeyDown(_interactKey))
-            InteractKeyPressed?.Invoke();
-
-        if (Input.GetKeyDown(_castSpellKey))
-            CastSpellKeyPressed?.Invoke();
+        return false;
     }
 }
