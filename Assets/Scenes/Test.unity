@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 2090407909289330974}
   - component: {fileID: 2090407909289330973}
   m_Layer: 5
-  m_Name: Wrapper
+  m_Name: List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -641,8 +641,8 @@ RectTransform:
   m_Children:
   - {fileID: 2090407910757204427}
   - {fileID: 2090407909367287823}
-  m_Father: {fileID: 6297308665949865522}
-  m_RootOrder: 0
+  m_Father: {fileID: 2090407909865101184}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 2090407909367287817}
   - component: {fileID: 2090407909367287816}
   m_Layer: 5
-  m_Name: ClosePerksListButton
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -860,7 +860,7 @@ GameObject:
   - component: {fileID: 2090407909736468180}
   - component: {fileID: 2090407909736468187}
   m_Layer: 5
-  m_Name: RemoveActivePerkButton
+  m_Name: RemovePerkButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1152,6 +1152,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2090407910128392815}
+  - {fileID: 2090407909289330972}
   m_Father: {fileID: 2090407910804716079}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1224,8 +1225,9 @@ GameObject:
   - component: {fileID: 2090407909865101186}
   - component: {fileID: 2090407909865101187}
   - component: {fileID: 2090407909865101212}
+  - component: {fileID: 2090407909865101213}
   m_Layer: 5
-  m_Name: OpenPerksListButton
+  m_Name: PerkListDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1261,6 +1263,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2090407909865101213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090407909865101191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d74d27da90f3741bb5660644159335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _perkDisplayPrefab: {fileID: 8343768583688544271, guid: 61246bf3af336d24e83ad993e4adda58, type: 3}
+  _content: {fileID: 2090407910723315661}
+  _openListButton: {fileID: 2090407909865101187}
+  _closeListButton: {fileID: 2090407909367287816}
+  _list: {fileID: 2090407909289330973}
 --- !u!114 &2090407910128392808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2067,7 +2086,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2090407909865101184}
-  - {fileID: 6297308665949865522}
   - {fileID: 6297308665719697377}
   m_Father: {fileID: 6297308665541730441}
   m_RootOrder: 0
@@ -2090,7 +2108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerPerksPool: {fileID: 865896610}
-  _perkListDisplay: {fileID: 6297308665949865523}
+  _perkListDisplay: {fileID: 2090407909865101213}
   _activePerkDisplay: {fileID: 6297308665719697378}
 --- !u!114 &2090407910957199480
 MonoBehaviour:
@@ -2400,7 +2418,7 @@ GameObject:
   - component: {fileID: 6297308665719697377}
   - component: {fileID: 6297308665719697378}
   m_Layer: 5
-  m_Name: ActivePerkInfo
+  m_Name: ActivePerkDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2420,7 +2438,7 @@ RectTransform:
   m_Children:
   - {fileID: 2090407910223581225}
   m_Father: {fileID: 2090407910804716079}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2439,59 +2457,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d10c8633a459e0645a65dea1f3b59ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wrapper: {fileID: 2090407910223581226}
   _header: {fileID: 2090407910957199480}
   _description: {fileID: 2090407910666573005}
   _icon: {fileID: 2090407910668419960}
   _background: {fileID: 2090407910223581226}
---- !u!1 &6297308665949865521
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6297308665949865522}
-  - component: {fileID: 6297308665949865523}
-  m_Layer: 5
-  m_Name: PerksList
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6297308665949865522
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6297308665949865521}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2090407909289330972}
-  m_Father: {fileID: 2090407910804716079}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6297308665949865523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6297308665949865521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d74d27da90f3741bb5660644159335, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _perkDisplayPrefab: {fileID: 8343768583688544271, guid: 61246bf3af336d24e83ad993e4adda58, type: 3}
-  _content: {fileID: 2090407910723315661}
+  _removePerkButton: {fileID: 2090407909736468187}
