@@ -5,7 +5,7 @@ using UnityEngine;
 public class AddPerkTest : MonoBehaviour
 {
     [SerializeField] private PerksPool _perksPool;
-    [SerializeField] private PlayerPerksPool _playerPerksPool;
+    [SerializeField] private PlayerPerks _playerPerksPool;
 
     private void Update()
     {

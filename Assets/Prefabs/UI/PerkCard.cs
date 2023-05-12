@@ -4,39 +4,46 @@ using UnityEngine;
 
 public class PerkCard : MonoBehaviour
 {
-    [SerializeField] private PlayerPerksPool _playerPerksPool;
+    [SerializeField] private PlayerPerks _playerPerks;
     [SerializeField] private PerkListDisplay _perkListDisplay;
     [SerializeField] private ActivePerkDisplay _activePerkDisplay;
 
     private void OnEnable()
     {
-        _playerPerksPool.NewPerkAdded += OnPlayerNewPerkAdded;
+        _playerPerks.ListChanged += OnPlayerPerkListChanged;
+
         _perkListDisplay.PerkSelected += OnPerkSelected;
         _activePerkDisplay.PerkRemoved += OnPerkRemoved;
     }
 
     private void OnDisable()
     {
-        _playerPerksPool.NewPerkAdded -= OnPlayerNewPerkAdded;
+        _playerPerks.ListChanged -= OnPlayerPerkListChanged;
+
         _perkListDisplay.PerkSelected -= OnPerkSelected;
         _activePerkDisplay.PerkRemoved -= OnPerkRemoved;
     }
 
-    private void OnPlayerNewPerkAdded(PerkData data)
+    private void OnPlayerPerkListChanged(PerkData data)
     {
-        _perkListDisplay.AddNewPerk(data);
+        _perkListDisplay.Refresh(_playerPerks.NotActivePerks);
     }
 
     private void OnPerkSelected(PerkData data)
     {
         if (_activePerkDisplay.CurrentPerkData != null)
-            _perkListDisplay.AddNewPerk(_activePerkDisplay.CurrentPerkData);
+            _playerPerks.RemoveActivePerk(_activePerkDisplay.CurrentPerkData);
 
+        _playerPerks.AddActivePerk(data);
         _activePerkDisplay.Init(data);
+
+        _perkListDisplay.Refresh(_playerPerks.NotActivePerks);
     }
 
     private void OnPerkRemoved(PerkData data)
     {
-        _perkListDisplay.AddNewPerk(data);
+        _playerPerks.RemoveActivePerk(data);
+
+        _perkListDisplay.Refresh(_playerPerks.NotActivePerks);
     }
 }

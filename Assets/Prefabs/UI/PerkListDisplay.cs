@@ -12,6 +12,8 @@ public class PerkListDisplay : MonoBehaviour
     [SerializeField] private Button _closeListButton;
     [SerializeField] private Image _list;
 
+    private List<PerkDisplay> _listItems = new List<PerkDisplay>();
+
     public event UnityAction<PerkData> PerkSelected;
 
     private void OnEnable()
@@ -36,11 +38,23 @@ public class PerkListDisplay : MonoBehaviour
         _list.gameObject.SetActive(false);
     }
 
-    public void AddNewPerk(PerkData data)
+    public void Refresh(List<PerkData> perkDatas)
     {
-        var newListItem = Instantiate(_perkDisplayPrefab, _content.transform);
-        newListItem.Init(data);
-        newListItem.PerkSelected += OnPerkSelected;
+        while (_listItems.Count != 0)
+        {
+            var item = _listItems[0];
+            item.PerkSelected -= OnPerkSelected;
+            _listItems.Remove(item);
+            Destroy(item.gameObject);
+        }
+
+        foreach (var perkData in perkDatas)
+        {
+            var newListItem = Instantiate(_perkDisplayPrefab, _content.transform);
+            newListItem.Init(perkData);
+            newListItem.PerkSelected += OnPerkSelected;
+            _listItems.Add(newListItem);
+        }
     }
 
     private void OnPerkSelected(PerkData data, PerkDisplay selectedPerk)
