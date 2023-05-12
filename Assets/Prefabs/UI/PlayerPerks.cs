@@ -22,11 +22,15 @@ public class PlayerPerks : MonoBehaviour
     {
         NotActivePerks.Remove(data);
         ListChanged?.Invoke(data);
+
+        print(data.Logic + " эффект активирован");
     }
 
     public void RemoveActivePerk(PerkData data)
     {
         NotActivePerks.Add(data);
         ListChanged?.Invoke(data);
+
+        print(data.Logic + " эффект убран");
     }
 }
