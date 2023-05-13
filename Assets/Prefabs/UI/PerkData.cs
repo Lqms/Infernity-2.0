@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,17 +26,44 @@ public class PerkData : ScriptableObject
     public Sprite Icon => _icon;
     public PerkRarities Rarity => _rarity;
     public Color RarityColor => RarityToColor();
+    public float ChanceToDrop => CalculateDropChanse();
 
     public string Logic => _logic;
 
+    private float CalculateDropChanse()
+    {
+        float chanseToDrop;
+
+        // 10, 25, 50, 100 - Constants
+        switch (_rarity)
+        {
+            default:
+                chanseToDrop = 100;
+                break;
+
+            case PerkRarities.Rare:
+                chanseToDrop = 50;
+                break;
+
+            case PerkRarities.Epic:
+                chanseToDrop = 25;
+                break;
+
+            case PerkRarities.Legendary:
+                chanseToDrop = 10;
+                break;
+        }
+
+        return chanseToDrop;
+    }
 
     private Color RarityToColor()
     {
-        Color color = Color.gray;
+        Color color;
 
         switch (_rarity)
         {
-            case PerkRarities.Common:
+            default:
                 color = Color.grey;
                 break;
 
