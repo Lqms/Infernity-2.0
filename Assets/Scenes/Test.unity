@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _perksPool: {fileID: 1088435265}
-  _playerPerksPool: {fileID: 865896612}
+  _playerPerks: {fileID: 865896612}
 --- !u!4 &55136271
 Transform:
   m_ObjectHideFlags: 0

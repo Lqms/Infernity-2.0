@@ -15,6 +15,7 @@ public class PlayerPerks : MonoBehaviour
     {
         _perkDatas.Add(data);
         NotActivePerks.Add(data);
+
         ListChanged?.Invoke(data);
     }
 

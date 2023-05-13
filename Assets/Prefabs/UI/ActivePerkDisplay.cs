@@ -13,7 +13,7 @@ public class ActivePerkDisplay : MonoBehaviour
     [SerializeField] private Image _background;
     [SerializeField] private Button _removePerkButton;
 
-    public PerkData CurrentPerkData { get; private set; }
+    private PerkData _data;
 
     public event UnityAction<PerkData> PerkRemoved;
 
@@ -29,19 +29,20 @@ public class ActivePerkDisplay : MonoBehaviour
 
     private void OnRemovePerkButtonClicked()
     {
+        PerkRemoved?.Invoke(_data);
+
         _wrapper.gameObject.SetActive(false);
-        PerkRemoved?.Invoke(CurrentPerkData);
-        CurrentPerkData = null;
     }
 
     public void Init(PerkData data)
     {
-        CurrentPerkData = data;
+        _data = data;
 
         _header.text = data.Header;
         _description.text = data.Description;
         _icon.sprite = data.Icon;
         _background.color = data.RarityColor;
+
         _wrapper.gameObject.SetActive(true);
     }
 }
