@@ -5,14 +5,14 @@ using UnityEngine;
 public class AddPerkTest : MonoBehaviour
 {
     [SerializeField] private PerksPool _perksPool;
-    [SerializeField] private PlayerPerks _playerPerksPool;
+    [SerializeField] private PlayerPerks _playerPerks;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
             var perk = _perksPool.GetRandomPerk();
-            _playerPerksPool.AddNewPerk(perk);
+            _playerPerks.AddNewPerk(perk);
         }
     }
 }

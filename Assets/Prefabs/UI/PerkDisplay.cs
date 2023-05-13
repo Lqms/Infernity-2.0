@@ -13,7 +13,7 @@ public class PerkDisplay : MonoBehaviour
 
     private PerkData _data;
 
-    public event UnityAction<PerkData, PerkDisplay> PerkSelected;
+    public event UnityAction<PerkData> PerkSelected;
 
     public void Init(PerkData data)
     {
@@ -36,6 +36,6 @@ public class PerkDisplay : MonoBehaviour
 
     private void OnButtonClicked()
     {
-        PerkSelected?.Invoke(_data, this);
+        PerkSelected?.Invoke(_data);
     }
 }

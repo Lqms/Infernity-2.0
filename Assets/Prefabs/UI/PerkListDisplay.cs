@@ -57,10 +57,8 @@ public class PerkListDisplay : MonoBehaviour
         }
     }
 
-    private void OnPerkSelected(PerkData data, PerkDisplay selectedPerk)
+    private void OnPerkSelected(PerkData data)
     {
-        selectedPerk.PerkSelected -= OnPerkSelected;
-        Destroy(selectedPerk.gameObject);
         PerkSelected?.Invoke(data);
         _list.gameObject.SetActive(false);
     }

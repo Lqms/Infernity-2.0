@@ -5,6 +5,8 @@ using UnityEngine;
 public class PerkCard : MonoBehaviour
 {
     [SerializeField] private PlayerPerks _playerPerks;
+
+    [Header("Systems")]
     [SerializeField] private PerkListDisplay _perkListDisplay;
     [SerializeField] private ActivePerkDisplay _activePerkDisplay;
 
@@ -31,19 +33,12 @@ public class PerkCard : MonoBehaviour
 
     private void OnPerkSelected(PerkData data)
     {
-        if (_activePerkDisplay.CurrentPerkData != null)
-            _playerPerks.RemoveActivePerk(_activePerkDisplay.CurrentPerkData);
-
         _playerPerks.AddActivePerk(data);
         _activePerkDisplay.Init(data);
-
-        _perkListDisplay.Refresh(_playerPerks.NotActivePerks);
     }
 
     private void OnPerkRemoved(PerkData data)
     {
         _playerPerks.RemoveActivePerk(data);
-
-        _perkListDisplay.Refresh(_playerPerks.NotActivePerks);
     }
 }
