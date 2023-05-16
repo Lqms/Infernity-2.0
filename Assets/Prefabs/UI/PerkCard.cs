@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PerkCard : MonoBehaviour
 {
     [SerializeField] private PlayerPerks _playerPerks;
 
+    [Header("UI")]
+    [SerializeField] private Image _cardStatus;
+    [SerializeField] private Button _openPerkListButton;
+    [SerializeField] private Sprite _unlockedIcon;
+
     [Header("Systems")]
     [SerializeField] private PerkListDisplay _perkListDisplay;
     [SerializeField] private ActivePerkDisplay _activePerkDisplay;
+
+    public bool IsOpened { get; private set; } = false;
 
     private void OnEnable()
     {
@@ -40,5 +48,12 @@ public class PerkCard : MonoBehaviour
     private void OnPerkRemoved(PerkData data)
     {
         _playerPerks.RemoveActivePerk(data);
+    }
+
+    public void UnlockCard()
+    {
+        _openPerkListButton.interactable = true;
+        _cardStatus.sprite = _unlockedIcon;
+        IsOpened = true;
     }
 }
