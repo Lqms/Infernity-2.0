@@ -10,6 +10,7 @@ public class Chest : MonoBehaviour
     [SerializeField] private GameObject _cardCanvas;
     [SerializeField] private GameObject _cardAnimationObject;
     [SerializeField] private MainCamera _camera;
+    
     private void OnEnable()
     {
         StartCoroutine(StartCardAnimation());

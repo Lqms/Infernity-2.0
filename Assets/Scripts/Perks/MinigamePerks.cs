@@ -3,18 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MinigamePerks : MonoBehaviour
 {
     [SerializeField] private PerkCard[] _perkCards;
+    [SerializeField] private HorizontalLayoutGroup _perkCardsWrapper;
 
     private void OnEnable()
     {
         LevelChangerTest.PlayerEnteredNewFloor += OnPLayerEnteredNewFloor;
+        PlayerInput.OnOpenPerkCardsKeyPressed += OnOpenPerkCardsKeyPressed;
     }
     private void OnDisable()
     {
         LevelChangerTest.PlayerEnteredNewFloor -= OnPLayerEnteredNewFloor;
+        PlayerInput.OnOpenPerkCardsKeyPressed += OnOpenPerkCardsKeyPressed;
     }
 
     private void OnPLayerEnteredNewFloor(int floor)
@@ -30,5 +34,10 @@ public class MinigamePerks : MonoBehaviour
             var closedCard = _perkCards.FirstOrDefault(p => !p.IsOpened);
             closedCard.UnlockCard();
         }
+    }
+
+    private void OnOpenPerkCardsKeyPressed()
+    {
+        _perkCardsWrapper.gameObject.SetActive(!_perkCardsWrapper.gameObject.activeSelf);
     }
 }
