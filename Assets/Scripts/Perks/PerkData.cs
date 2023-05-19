@@ -26,35 +26,35 @@ public class PerkData : ScriptableObject
     public Sprite Icon => _icon;
     public PerkRarities Rarity => _rarity;
     public Color RarityColor => RarityToColor();
-    public float ChanceToDrop => CalculateDropChanse();
+    public float ChanceToDrop => CalculateDropChance();
 
     public string Logic => _logic;
 
-    private float CalculateDropChanse()
+    private float CalculateDropChance()
     {
-        float chanseToDrop;
+        float chanceToDrop;
 
         // 10, 25, 50, 100 - Constants
         switch (_rarity)
         {
             default:
-                chanseToDrop = 100;
+                chanceToDrop = 100;
                 break;
 
             case PerkRarities.Rare:
-                chanseToDrop = 50;
+                chanceToDrop = 50;
                 break;
 
             case PerkRarities.Epic:
-                chanseToDrop = 25;
+                chanceToDrop = 25;
                 break;
 
             case PerkRarities.Legendary:
-                chanseToDrop = 10;
+                chanceToDrop = 10;
                 break;
         }
 
-        return chanseToDrop;
+        return chanceToDrop;
     }
 
     private Color RarityToColor()

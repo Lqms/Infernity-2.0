@@ -16,7 +16,7 @@ public class PerkCard : MonoBehaviour
     [SerializeField] private PerkListDisplay _perkListDisplay;
     [SerializeField] private ActivePerkDisplay _activePerkDisplay;
 
-    public bool IsOpened { get; private set; } = false;
+    public bool IsOpened { get; private set; }
 
     private void OnEnable()
     {
@@ -34,9 +34,9 @@ public class PerkCard : MonoBehaviour
         _activePerkDisplay.PerkRemoved -= OnPerkRemoved;
     }
 
-    private void OnPlayerPerkListChanged(PerkData data)
+    private void OnPlayerPerkListChanged(List<PerkData> notActivePerksList)
     {
-        _perkListDisplay.Refresh(_playerPerks.NotActivePerks);
+        _perkListDisplay.Refresh(notActivePerksList);
     }
 
     private void OnPerkSelected(PerkData data)

@@ -38,7 +38,7 @@ public class PerkListDisplay : MonoBehaviour
         _list.gameObject.SetActive(false);
     }
 
-    public void Refresh(List<PerkData> perkDatas)
+    public void Refresh(List<PerkData> notActivePerks)
     {
         while (_listItems.Count != 0)
         {
@@ -48,10 +48,10 @@ public class PerkListDisplay : MonoBehaviour
             Destroy(item.gameObject);
         }
 
-        foreach (var perkData in perkDatas)
+        foreach (var perk in notActivePerks)
         {
             var newListItem = Instantiate(_perkDisplayPrefab, _content.transform);
-            newListItem.Init(perkData);
+            newListItem.Init(perk);
             newListItem.PerkSelected += OnPerkSelected;
             _listItems.Add(newListItem);
         }
