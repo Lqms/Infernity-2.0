@@ -7,18 +7,20 @@ using UnityEngine.Events;
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private KeyCode _openPerkCardsKey = KeyCode.P;
+    [SerializeField] private KeyCode _interactKey = KeyCode.E;
     
     public static KeyCode AttackKey = KeyCode.Mouse0;
     public static KeyCode MoveKey = KeyCode.Mouse1;
     public static KeyCode BlockKey = KeyCode.Space;
-
     public static KeyCode CastKey = KeyCode.LeftShift;
     
-    public static event UnityAction OnOpenPerkCardsKeyPressed;
+    public static event UnityAction OpenPerkCardsKeyPressed;
+    public static event UnityAction InteractKeyPressed;
 
     private void Update()
     {
         CheckOpenCardsKeyDown();
+        CheckInteractKeyDown();
     }
 
     public static bool CheckBlockKey()
@@ -65,7 +67,15 @@ public class PlayerInput : MonoBehaviour
     {
         if (Input.GetKeyDown(_openPerkCardsKey))
         {
-            OnOpenPerkCardsKeyPressed?.Invoke();
+            OpenPerkCardsKeyPressed?.Invoke();
+        }
+    }
+
+    private void CheckInteractKeyDown()
+    {
+        if (Input.GetKeyDown(_interactKey))
+        {
+            InteractKeyPressed?.Invoke();
         }
     }
 }

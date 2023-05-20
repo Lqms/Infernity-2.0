@@ -13,12 +13,12 @@ public class MinigamePerks : MonoBehaviour
     private void OnEnable()
     {
         LevelChangerTest.PlayerEnteredNewFloor += OnPLayerEnteredNewFloor;
-        PlayerInput.OnOpenPerkCardsKeyPressed += OnOpenPerkCardsKeyPressed;
+        PlayerInput.OpenPerkCardsKeyPressed += OnOpenPerkCardsKeyPressed;
     }
     private void OnDisable()
     {
         LevelChangerTest.PlayerEnteredNewFloor -= OnPLayerEnteredNewFloor;
-        PlayerInput.OnOpenPerkCardsKeyPressed += OnOpenPerkCardsKeyPressed;
+        PlayerInput.OpenPerkCardsKeyPressed += OnOpenPerkCardsKeyPressed;
     }
 
     private void OnPLayerEnteredNewFloor(int floor)
