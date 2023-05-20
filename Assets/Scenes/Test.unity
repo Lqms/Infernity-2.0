@@ -3265,7 +3265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3609155508040852426, guid: 66d04e57706cef345adce2d87b13bdbe, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3609155508041152656, guid: 66d04e57706cef345adce2d87b13bdbe, type: 3}
       propertyPath: m_RootOrder
@@ -5591,6 +5591,10 @@ PrefabInstance:
     - target: {fileID: 1578801356365549237, guid: f1bfd5d1bed687e4686f1e9a6e577e8f, type: 3}
       propertyPath: m_Name
       value: CardAnimation
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578801356365549237, guid: f1bfd5d1bed687e4686f1e9a6e577e8f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2543325099584126616, guid: f1bfd5d1bed687e4686f1e9a6e577e8f, type: 3}
       propertyPath: m_RootOrder
