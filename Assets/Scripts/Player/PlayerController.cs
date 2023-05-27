@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
     public void EndTeleportation()
     {
         GetComponent<NavMeshAgent>().enabled = true;
+        _mover.StopMovement();
     }
 
     private void Update()
