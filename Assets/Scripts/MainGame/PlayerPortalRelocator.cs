@@ -20,6 +20,7 @@ public class PlayerPortalRelocator : MonoBehaviour
 
     private void OnPortalEntered()
     {
+        print("entererd");
         var room = _roomsManager.GetRandomRoom();
         _player.PrepareForTeleportation();
         _player.transform.position = room.EntryPointPosition;
