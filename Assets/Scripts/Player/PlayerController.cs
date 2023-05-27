@@ -29,13 +29,17 @@ public class PlayerController : MonoBehaviour
     public void Attack(Vector3 point)
     {
         _mover.StopMovement();
+
+        Vector3 tempDirection = (point - transform.position).normalized;
+        Quaternion tempLookRotation = Quaternion.LookRotation(new Vector3(tempDirection.x, 0.0f, tempDirection.z));
+        transform.rotation = tempLookRotation;
+
         _combat.Attack(_animator);
     }
 
     public void Cast(Vector3 point)
     {
         _mover.StopMovement();
-        transform.DORotate(point, 0.2f);
         _combat.Cast();
     }
 
