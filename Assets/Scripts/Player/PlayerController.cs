@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -59,5 +60,21 @@ public class PlayerController : MonoBehaviour
         Physics.Raycast(ray, out RaycastHit hitInfo);
 
         return hitInfo;
+    }
+
+    public void PrepareForTeleportation()
+    {
+        _mover.StopMovement();
+        GetComponent<NavMeshAgent>().enabled = false;
+    }
+
+    public void EndTeleportation()
+    {
+        GetComponent<NavMeshAgent>().enabled = true;
+    }
+
+    private void Update()
+    {
+        print(IsMovementStopped);
     }
 }

@@ -10,24 +10,17 @@ public class PlayerMover : MonoBehaviour
 
     private Coroutine _coroutine;
 
-    private bool _canMove = true;
-    
     public bool IsMovementStopped => _agent.isStopped;
 
-    public bool CanMove => _canMove;
-    
     public void Move(Vector3 point)
     {
-        if (_canMove)
-        {
-            _agent.isStopped = false;
-            _agent.SetDestination(point);
+        _agent.isStopped = false;
+        _agent.SetDestination(point);
         
-            if (_coroutine != null)
-                StopCoroutine(_coroutine);
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
         
-            _coroutine = StartCoroutine(Moving(point));
-        }
+        _coroutine = StartCoroutine(Moving(point));
     }
 
     public void StopMovement()
@@ -41,8 +34,10 @@ public class PlayerMover : MonoBehaviour
         {
             yield return null;
         }
-        
-        StopMovement();
+
+        print("end moving");
+        _agent.isStopped = true;
+
         _coroutine = null;
     }
 }

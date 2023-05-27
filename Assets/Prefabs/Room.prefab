@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 381622032235627899}
   - component: {fileID: 1834182867230944525}
   - component: {fileID: 2397974545326285697}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4832,7 +4832,7 @@ GameObject:
   - component: {fileID: 679247571965494853}
   - component: {fileID: 1536489157637615155}
   - component: {fileID: 3270094927891587263}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9653,7 +9653,7 @@ GameObject:
   - component: {fileID: 615357885813583311}
   - component: {fileID: 1492283648048694713}
   - component: {fileID: 3208439453662268213}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14474,7 +14474,7 @@ GameObject:
   - component: {fileID: 2730349893843128975}
   - component: {fileID: 2044570592674849051}
   - component: {fileID: 5133330496806802183}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Distortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19344,7 +19344,7 @@ GameObject:
   - component: {fileID: 2594982058428217605}
   - component: {fileID: 2141702084455795345}
   - component: {fileID: 5105494619415836813}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Distortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24214,7 +24214,7 @@ GameObject:
   - component: {fileID: 2892961640912976443}
   - component: {fileID: 1269519854367492527}
   - component: {fileID: 5403399710111185843}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Distortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29084,7 +29084,7 @@ GameObject:
   - component: {fileID: 5719323947767461431}
   - component: {fileID: 5846896878505928863}
   - component: {fileID: 786966788802872776}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CircleSparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33907,7 +33907,7 @@ GameObject:
   - component: {fileID: 6060611361620200128}
   - component: {fileID: 1114952142534277315}
   - component: {fileID: 3945993080423009103}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Portal blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38807,7 +38807,7 @@ GameObject:
   - component: {fileID: 6474600009137971828}
   - component: {fileID: 196153541074194543}
   - component: {fileID: 4252242778122757091}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Portal red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43707,7 +43707,7 @@ GameObject:
   - component: {fileID: 6358373258114583038}
   - component: {fileID: 243190217937402849}
   - component: {fileID: 4243548543468537973}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Portal yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48607,7 +48607,7 @@ GameObject:
   - component: {fileID: 3364118666357776925}
   - component: {fileID: 3364118666357776924}
   - component: {fileID: 5509773966154589076}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Portal green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53505,7 +53505,7 @@ GameObject:
   - component: {fileID: 5949678139535217382}
   - component: {fileID: 7722090489321939314}
   - component: {fileID: 3479284279584068462}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Distortion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58375,7 +58375,7 @@ GameObject:
   - component: {fileID: 3885272917642436330}
   - component: {fileID: 3139013671992819778}
   - component: {fileID: 8097335695296015637}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CircleSparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63196,7 +63196,7 @@ GameObject:
   - component: {fileID: 4047250255094003294}
   - component: {fileID: 2761269274374007030}
   - component: {fileID: 9051804663720756641}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CircleSparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68017,7 +68017,7 @@ GameObject:
   - component: {fileID: 4165165568209919444}
   - component: {fileID: 2861724664968299388}
   - component: {fileID: 8969310976686386731}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CircleSparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78312,7 +78312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8812554760517416857}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Portals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114514,7 +114514,7 @@ GameObject:
   - component: {fileID: 9223256318830947750}
   - component: {fileID: 7187760878005896656}
   - component: {fileID: 6625653576952679260}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}

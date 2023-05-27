@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerPortalRelocator : MonoBehaviour
 {
     [SerializeField] private RoomsManager _roomsManager;
-    [SerializeField] private Player _player;
+    [SerializeField] private PlayerController _player;
 
     private void OnEnable()
     {
