@@ -4833,7 +4833,6 @@ GameObject:
   - component: {fileID: 1611524754938564061}
   - component: {fileID: 5566396110720597953}
   - component: {fileID: 1611524754938564058}
-  - component: {fileID: 5618510665397112562}
   m_Layer: 0
   m_Name: Portal red
   m_TagString: Untagged
@@ -4849,7 +4848,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3367232500626927612}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -7.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9709,18 +9708,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.8402, y: 2.841, z: 2.8402}
   m_Center: {x: 0, y: 0.00050002337, z: 0}
---- !u!114 &5618510665397112562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3367232500626927612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 922bf16ba6dc01843b8ba9f196604a67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3485212829478624911
 GameObject:
   m_ObjectHideFlags: 0

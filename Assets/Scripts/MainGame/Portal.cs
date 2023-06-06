@@ -5,10 +5,13 @@ using UnityEngine.Events;
 
 public class Portal : MonoBehaviour, IInteractable
 {
-    public static event UnityAction Entered;
+    [SerializeField] private GameObject _portalVFX;
+
+    public static event UnityAction<GameObject> Entered;
 
     public void Use()
     {
-        Entered?.Invoke();
+        var enteredPortal = Instantiate(_portalVFX);
+        Entered?.Invoke(enteredPortal);
     }
 }
